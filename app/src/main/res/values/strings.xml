@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">sample-share-file</string>
+    <string name="activity_main_btn_share">Share</string>
 </resources>
