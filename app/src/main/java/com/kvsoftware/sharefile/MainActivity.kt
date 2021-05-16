@@ -25,13 +25,13 @@ class MainActivity : AppCompatActivity() {
         val fileFromAssets = AssetHelper.getFile(this, FILE_NAME)
         fileFromAssets?.let {
             // Generate a file's content URI.
-            val file = FileProvider.getUriForFile(this, "${packageName}.fileprovider", it)
+            val uri = FileProvider.getUriForFile(this, "${packageName}.fileprovider", it)
 
             // Send an Intent that contains the data.
-            val share = Intent(Intent.ACTION_SEND)
-            share.type = "image/jpeg"
-            share.putExtra(Intent.EXTRA_STREAM, file)
-            startActivity(share)
+            val intent = Intent(Intent.ACTION_SEND)
+            intent.type = "image/jpeg"
+            intent.putExtra(Intent.EXTRA_STREAM, uri)
+            startActivity(intent)
         }
     }
 }
