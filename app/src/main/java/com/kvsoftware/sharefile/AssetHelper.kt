@@ -5,13 +5,16 @@ import java.io.File
 import java.io.FileOutputStream
 
 object AssetHelper {
+
+    private const val DIRECTORY_IMAGES = "images"
+
     fun getFile(context: Context, fileName: String): File? {
 
         // Create directory `images` in filesDir (/data/user/0/com.kvsoftware.sharefile/files/)
-        val imagesDir = File(context.filesDir, "images")
+        val imagesDir = File(context.filesDir, DIRECTORY_IMAGES)
         imagesDir.mkdir()
 
-        val f = File(context.filesDir.toString() + "/images/" + fileName)
+        val f = File(context.filesDir.toString() + "/" + DIRECTORY_IMAGES + "/" + fileName)
         if (!f.exists()) {
             // Load data from the assets folder
             return try {
